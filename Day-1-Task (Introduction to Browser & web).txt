@@ -1,21 +1,21 @@
 Javascript - Day -1 : Introduction to Browser & web 25/03/2023.
 
-1) Write a blog on Difference between HTTP1.1 vs HTTP2
+1) Write a blog on the difference between HTTP1.1 vs HTTP2
 
 
 Difference between HTTP/2 and HTTP/1.1
 
 
-HTTP stands for hypertext transfer protocol & it is used in client-server communication. By using HTTP user sends the request to the server & the server sends the response to the user. There are several stages of development of HTTP but we will focus mainly on HTTP/1.1 which was created in 1997 & the new one is HTTP/2 which was created in 2015.
+HTTP stands for hypertext transfer protocol & it is used in client-server communication. By using HTTP, the user sends the request to the server & the server sends the response to the user. There are several stages of development of HTTP but we will focus mainly on HTTP/1.1 which was created in 1997 & the new one is HTTP/2 which was created in 2015.
 
 
-HTTP/1.1: For better understanding, let’s assume the situation when you make a request to the server for the geeksforgeeks.html page & server responds to you as a resource geeksforgeeks.html page. before sending the request and the response there is a TCP connection established between client & server. again you make a request to the server for image img.jpg & the server gives a response as an image img.jpg. the connection was not lost here after the first request because we add a keep-alive header which is the part of the request so there is an open connection between the server & client. there is a persistent connection which means several requests & responses are merged in a single connection. These are the drawbacks that lead to the creation of HTTP/2: The first problem is HTTP/1.1 transfer all the requests & responses in the plain text message form. The second one is head of line blocking in which TCP connection is blocked all other requests until the response does not receive. all the information related to the header file is repeated in every request.
+HTTP/1.1: For better understanding, let’s assume the situation when you make a request to the server for the geeksforgeeks.html page & server responds to you as a resource geeksforgeeks.html page. before sending the request and the response there is a TCP connection established between client & server. again you make a request to the server for image img.jpg & the server gives a response as an image img.jpg. the connection was not lost here after the first request because we add a keep-alive header which is the part of the request so there is an open connection between the server & client. there is a persistent connection which means several requests & responses are merged in a single connection. These are the drawbacks that lead to the creation of HTTP/2: The first problem is HTTP/1.1 transfer all the requests & responses in the plain text message form. The second one is head-of-line blocking in which TCP connection blocks all other requests until the response does not receive. all the information related to the header file is repeated in every request.
 
 
-HTTP/2: HTTP/2 was developed over the SPDY protocol. HTTP/2 works on the binary framing layer instead of textual that converts all the messages in binary format. it works on fully multiplexed that is one TCP connection is used for multiple requests. HTTP/2 uses HPACK which is used to split data from header. it compresses the header. The server sends all the other files like CSS & JS without the request of the client using the PUSH frame.
+HTTP/2: HTTP/2 was developed over the SPDY protocol. HTTP/2 works on the binary framing layer instead of textual which converts all the messages into binary format. it works on fully multiplexed that is one TCP connection is used for multiple requests. HTTP/2 uses HPACK which is used to split data from the header. it compresses the header. The server sends all the other files like CSS & JS without the request of the client using the PUSH frame.
 
 
-Difference between HTTP/1.1 and HTTP/2 are:
+Differences between HTTP/1.1 and HTTP/2 are:
 
 
 HTTP/1.1																			HTTP/2
@@ -27,16 +27,16 @@ It compresses data by itself.																It uses HPACK for data compression.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-2) Write a blog about objects and its internal representation in Javascript
+2) Write a blog about objects and their internal representation in Javascript
 
 
 Objects And Its Internal Representation In JavaScript
 
 
-Objects, in JavaScript, is it’s most important data-type and forms the building blocks for modern JavaScript. These objects are quite different from JavaScript’s primitive data-types(Number, String, Boolean, null, undefined and symbol) in the sense that while these primitive data-types all store a single value each (depending on their types).
+Objects, in JavaScript, are its most important data type and form the building blocks for modern JavaScript. These objects are quite different from JavaScript’s primitive data types (Number, String, Boolean, null, undefined and symbol) in the sense that while these primitive data types all store a single value each (depending on their types).
 
-Objects are more complex and each object may contain any combination of these primitive data-types as well as reference data-types.
-An object, is a reference data type. Variables that are assigned a reference value are given a reference or a pointer to that value. That reference or pointer points to the location in memory where the object is stored. The variables don’t actually store the value.
+Objects are more complex and each object may contain any combination of these primitive data types as well as reference data types.
+An object is a reference data type. Variables that are assigned a reference value are given a reference or a pointer to that value. That reference or pointer points to the location in memory where the object is stored. The variables don’t actually store the value.
 
 Loosely speaking, objects in JavaScript may be defined as an unordered collection of related data, of primitive or reference types, in the form of “key: value” pairs. These keys can be variables or functions and are called properties and methods, respectively, in the context of an object.
 
@@ -47,11 +47,11 @@ For Eg. If your object is a student, it will have properties like name, age, add
 Objects and properties
 
 
-A JavaScript object has properties associated with it. A property of an object can be explained as a variable that is attached to the object. Object properties are basically the same as ordinary JavaScript variables, except for the attachment to objects. The properties of an object define the characteristics of the object. You access the properties of an object with a simple dot-notation:
+A JavaScript object has properties associated with it. A property of an object can be explained as a variable that is attached to the object. Object properties are basically the same as ordinary JavaScript variables, except for the attachment to objects. The properties of an object define the characteristics of the object. You access the properties of an object with a simple dot notation:
 
 		objectName.propertyName
 
-Like all JavaScript variables, both the object name (which could be a normal variable) and property name are case sensitive. You can define a property by assigning it a value. For example, let’s create an object named myCar and give it properties named make, model, and year as follows:
+Like all JavaScript variables, both the object name (which could be a normal variable) and property name are case-sensitive. You can define a property by assigning it a value. For example, let’s create an object named myCar and give it properties named make, model, and year as follows:
 
 var myCar = new Object();
 myCar.make = 'Ford';
@@ -62,15 +62,15 @@ Unassigned properties of an object are undefined (and not null).
 
 		myCar.color; // undefined
 
-Properties of JavaScript objects can also be accessed or set using a bracket notation (for more details see property accessors). Objects are sometimes called associative arrays, since each property is associated with a string value that can be used to access it. So, for example, you could access the properties of the myCar object as follows:
+Properties of JavaScript objects can also be accessed or set using a bracket notation (for more details see property accessors). Objects are sometimes called associative arrays since each property is associated with a string value that can be used to access it. So, for example, you could access the properties of the myCar object as follows:
 
 myCar['make'] = 'Ford';
 myCar['model'] = 'Mustang';
 myCar['year'] = 1969;
 
-An object property name can be any valid JavaScript string, or anything that can be converted to a string, including the empty string. However, any property name that is not a valid JavaScript identifier (for example, a property name that has a space or a hyphen, or that starts with a number) can only be accessed using the square bracket notation. This notation is also very useful when property names are to be dynamically determined (when the property name is not determined until runtime). Examples are as follows:
+An object property name can be any valid JavaScript string or anything that can be converted to a string, including the empty string. However, any property name that is not a valid JavaScript identifier (for example, a property name that has a space or a hyphen, or that starts with a number) can only be accessed using the square bracket notation. This notation is also very useful when property names are to be dynamically determined (when the property name is not determined until runtime). Examples are as follows:
 
-// four variables are created and assigned in a single go, 
+//Four variables are created and assigned in a single go, 
 // separated by commas
 var myObj = new Object(),
     str = 'myString',
